@@ -1,11 +1,10 @@
 
 import './App.css';
-import MyComponent from './text';
 
 function App() {
   return (
     <>
-    <MyComponent/>
+   <h1>Hello World!</h1>
     </>
   )
 }
