@@ -1,6 +1,9 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import Book from './book.jsx';
+import './books.css'
+import { useEffect, useState } from 'react';
+
 
 const BOOKS = gql`
   query GETBOOKS {
@@ -23,7 +26,7 @@ export const Books = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div>
+    <div className='Books'>
       {data?.books?.map((book) => (
         <Book key={book.id} book={book} />
       ))}

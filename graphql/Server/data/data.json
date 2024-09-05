@@ -1,0 +1,34 @@
+{
+    "users": [
+      {
+        "id": "1",
+        "name": "Hari",
+        "address": "Butwal"
+      }
+    ],
+    "books": [
+      {
+        "id": "1",
+        "authors": [
+          {
+            "id": "2",
+            "name": "Ram",
+            "address": "Butwal"
+          }
+        ],
+        "price": 13.5
+      },
+      {
+        "id": "2",
+        "authors": [
+          {
+            "id": "3",
+            "name": "Sita",
+            "address": "Kathmandu"
+          }
+        ],
+        "price": 15.0
+      }
+    ]
+  }
+  

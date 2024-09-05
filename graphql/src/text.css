@@ -1,0 +1,29 @@
+.loader{
+    display: flex;
+    gap: 10px;
+}
+
+
+.skeleton{
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 80%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
+    }
+  }
+
+  .input{
+    height: 20px;
+    width: 80px;
+    border: none;
+    outline: none;
+  }
+  .button{
+    height: 20px;
+    width: 40px;
+  }

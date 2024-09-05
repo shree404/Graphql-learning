@@ -2,8 +2,8 @@ import { gql } from 'graphql-tag';
 
 export const typeDefs = gql`
   type Query {
-    users: [User]
-    books: [Book]
+    users: [User!]!
+    getBooks: [Book!]!
   }
 
   """User is a group of users of the Systems"""
@@ -15,7 +15,7 @@ export const typeDefs = gql`
 
   type Book {
     id: ID!
-    authors: [Author]  # Changed to an array of authors
+    authors: [Author!]!
     price: Float!
   }
 
@@ -25,29 +25,3 @@ export const typeDefs = gql`
     address: String!
   }
 `;
-
-// Mock data example
-export const mocks = {
-  Query: () => ({
-    users: () => [
-      {
-        id: "1",
-        name: "Hari",
-        address: "Butwal"
-      }
-    ],
-    books: () => [
-      {
-        id: "1",
-        authors: [  
-          {
-            id: "2",
-            name: "Ram",
-            address: "Butwal"
-          }
-        ],
-        price: 13.5  
-      }
-    ]
-  })
-};
