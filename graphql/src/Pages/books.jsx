@@ -5,31 +5,33 @@ import './books.css'
 import { useEffect, useState } from 'react';
 
 
-const BOOKS = gql`
-  query GETBOOKS {
-    books {
+const GET_USERS = gql`
+  query GetUsers {
+    getUser(id: "1") {
       id
-      price
-      authors {
-        name
-        id
-        address
-      }
+      name
+      email
     }
   }
 `;
 
-export const Books = () => {
-  const { loading, error, data } = useQuery(BOOKS);
+const Users = () => {
+  const { loading, error, data } = useQuery(GET_USERS);
 
-  if (loading) return <p>Loading.....</p>;
+  if (loading) return <p>Please wait, data is loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className='Books'>
-      {data?.books?.map((book) => (
-        <Book key={book.id} book={book} />
-      ))}
+    <div>
+      {data?.getUser && (
+        <div>
+          <p>ID: {data.getUser.id}</p>
+          <p>Name: {data.getUser.name}</p>
+          <p>Email: {data.getUser.email}</p>
+        </div>
+      )}
     </div>
   );
 };
+
+export default Users;
