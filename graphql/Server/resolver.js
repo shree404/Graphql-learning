@@ -1,27 +1,24 @@
-// const resolvers = {
-//     Query: {
-//       getBooks: (_, __, { dataSources }) => dataSources.bookAPI.getBooks(),
-//       users: (_, __, { dataSources }) => dataSources.bookAPI.getUsers()
-//     },
-//     Book: {
-//       authors: (book, _, { dataSources }) => dataSources.bookAPI.getAuthors(book.id)
-//     }
-//   };
-
-// import { Users } from "../src/Pages/books";
-
-  
-//   export default resolvers;
-
-
 const resolvers = {
   Query: {
     getUser: async (parent, args, { dataSources }, info) => {
       const { id } = args;
       return dataSources.myAPI.getUser(id);
-    }
-  }
+    },
+    getUsers: async (parent, args, { dataSources }, info) => {
+      // or we can do (parent , {ids}, {dataSources} , info) directly
+      const { ids } = args;
+      return Promise.all(ids.map((id) => dataSources.myAPI.getUser(id)));
+    },
+  },
 };
 
 export default resolvers;
-  
+
+//for multiple data update
+// getUsers : async (parent , args, {dataSources} , info) =>{ // or we can do (parent , {ids}, {dataSources} , info) directly
+// const {ids} = args;
+// return Promise.all(ids.map(id => dataSources.myAPI.getUser(id)));
+// }
+
+
+//now change in your frontend component
