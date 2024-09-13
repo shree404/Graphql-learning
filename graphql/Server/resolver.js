@@ -1,3 +1,5 @@
+const user = [];
+
 const resolvers = {
   Query: {
     getUser: async (parent, args, { dataSources }, info) => {
@@ -10,7 +12,14 @@ const resolvers = {
       return Promise.all(ids.map((id) => dataSources.myAPI.getUser(id)));
     },
   },
-};
+  Mutation : {
+    addUser: (parent, { id, name, email }) => {
+      const newUser = { id, name, email };
+      user.push(newUser);
+      return newUser;
+    },
+  },
+  }
 
 export default resolvers;
 

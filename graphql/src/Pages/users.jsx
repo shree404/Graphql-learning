@@ -1,6 +1,6 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
-import './books.css';
+
 
 
 const GET_USERS = gql`
@@ -45,7 +45,7 @@ const Users = () => {
 
 export default Users;
 
-//for single Id
+// single Id fetch 
 // const GET_USERS = gql
 //   query GetUsers {
 //     getUser(id: "3") {
