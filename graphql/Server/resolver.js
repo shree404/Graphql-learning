@@ -34,6 +34,7 @@ const resolvers = {
       });
       users.length = 0; 
       users.push(...updatedUsers); 
+      console.log(updatedUsers)
       return updatedUsers.find((user) => user.id === id);
     },
 
