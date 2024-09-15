@@ -15,8 +15,14 @@ export const typeDefs = gql`
     email: String!
   }
     type Mutation {
-    addUser(id: ID!, name: String!, email: String!): User!
-    }
+  addUser(id: ID!, name: String!, email: String!): User!
+  updateUserName(id: ID!, update: UpdateUserInput!): User
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+}
 `;
 
 //for multiple data retriving include one query 

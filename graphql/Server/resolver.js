@@ -1,4 +1,7 @@
-const user = [];
+import users from './data/data.js';
+
+const user = [
+];
 
 const resolvers = {
   Query: {
@@ -16,8 +19,24 @@ const resolvers = {
     addUser: (parent, { id, name, email }) => {
       const newUser = { id, name, email };
       user.push(newUser);
+      console.log(newUser)
       return newUser;
     },
+    updateUserName: (_, { id, update }) => {
+      if (!users) {
+        throw new Error("User database is not properly initialized.");
+      }
+      const updatedUsers = users.map((user) => {
+        if (user.id === id) {
+          return { ...user, ...update }; 
+        }
+        return user;
+      });
+      users.length = 0; 
+      users.push(...updatedUsers); 
+      return updatedUsers.find((user) => user.id === id);
+    },
+
   },
   }
 

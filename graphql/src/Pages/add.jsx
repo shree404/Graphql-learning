@@ -28,6 +28,7 @@ function AddUser() {
 
   if (loading) return 'Submitting...';
   if (error) return `Submission error! ${error.message}`;
+  if (data) return <p> user {data.addUser.name} Added</p>;
 
   return (
     <div>
