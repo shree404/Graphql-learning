@@ -2,15 +2,17 @@ import React from 'react';
 import Users from './Pages/users.jsx'; 
 import AddUser from './Pages/add.jsx';
 import UpdateUser from './Pages/update.jsx';
+import DeleteUser from './Pages/delete.jsx';
 
 function App() {
   return (
     
       <div>
-        <h1>Book List</h1>
+        <h3>User List</h3>
         {/* <Users /> */}
         {/* <AddUser/> */}
-       <UpdateUser/>
+       {/* <UpdateUser/> */}
+       <DeleteUser/>
       </div>
   );
 }
